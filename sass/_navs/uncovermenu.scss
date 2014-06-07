@@ -1,0 +1,227 @@
+@import "compass/css3";
+@import "variables";
+@import "mixins";
+
+.hammernav-parent {
+	overflow: hidden;
+
+	/*  No Flickering  */
+	@include backface-visibility(hidden);
+
+	* {
+		@include box-sizing(border-box);
+	}
+
+}
+
+/* MENU ICON */
+.hammernav-toggler {
+	color:white;
+	cursor:pointer;
+	display: block;
+	// font-size:$icon-font-size;
+	// left:$icon-gutter-width;
+	// line-height:$icon-line-height;
+	// position: absolute;
+
+	&.right{
+		left:auto;
+		right:$icon-gutter-width;
+	}
+
+}
+
+
+/*  Nav Drawer Layout  */
+.hammernav-nav {
+	background-color: $color-bg-drawernav;
+	color:$color-fg-drawernav;
+	// height: 100%;
+	left: 0;
+	margin: 0;
+	opacity: 0.3;
+	position: fixed;
+	top: 0;
+	width: $horizontal-drawer-width;
+
+	@include transform( translate3d(5%,0,0) scale(.97) );
+
+
+	li{
+
+		display: block;
+		float: none;
+		overflow:hidden;
+
+		a {
+			color:$color-fg-drawernav;
+			&.active, &:active{
+				color: $color-fg-drawernav-highlight;
+				background-color: $color-bg-drawernav-highlight;
+			}
+		}
+
+		// sub menus
+		ul{
+			background-color:$color-bg-drawernav-subnavs;
+			color:$color-fg-drawernav-subnavs;
+			display:block;
+			height:0;
+			@include animation( closeUp .25s ease-in-out );
+
+			>li > a{
+				color:$color-fg-drawernav-subnavs;
+			}
+
+		}
+
+		&:hover{
+			background-color:$color-bg-drawernav-highlight;
+			color:$color-fg-drawernav-highlight;
+			> a{
+				color:$color-fg-drawernav-highlight;
+			}
+
+		}
+
+		&.active, &:active{
+			background-color:$color-bg-drawernav-highlight;
+			border-bottom:$color-bg-drawernav-highlight;
+			color:$color-fg-drawernav-highlight;
+
+			> a {
+				color:$color-fg-drawernav-highlight;
+			}
+
+			// activated submenus
+			> ul{
+				display:block;
+				height:auto;
+				@include animation( openDown .25s ease-in-out );
+			}
+		}
+	}
+
+
+	> ul {
+		height: 100%;
+		overflow-y: scroll;
+	}
+
+	&.hammernav-right{
+		left:auto;
+		right:0;
+		@include transform(translate3d(0,0,0)scale(.97) );
+
+		&.hammernav-open {
+			@include transform( translate3d(0,0,0)scale(1) );
+			@include animation( popUpRight .35s ease-in-out );
+		}
+	}
+
+	&.hammernav-top, &.hammernav-bottom{
+		width:$vertical-drawer-width;
+	}
+
+	&.hammernav-open {
+		opacity: 1;
+
+		@include transform( translate3d(0,0,0)scale(1) );
+		@include animation( popUpLeft .35s ease-in-out );
+
+	}
+
+	&.hammernav-close {
+		opacity: .3;
+
+		&.hammernav-left{
+			@include transform( translate3d(5%,0,0)scale(.97) );
+			@include animation( pushDownLeft .3s ease-in-out );
+		}
+
+		&.hammernav-right{
+			@include transform(translate3d(0,0,0)scale(.97) );
+			@include animation( pushDownRight .35s ease-in-out );
+		}
+	}
+
+
+	.hammernav-subnav-expander {
+		display: block;
+		float:right;
+		padding:0 $icon-gutter-width;
+		top:0;
+
+		&:hover, &:active{
+			color:$color-activate;
+		}
+	}
+
+
+
+	.active > a > .hammernav-subnav-expander {
+		color:$color-activate;
+		&:hover, &:active{
+			color:$color-deactivate;
+		}
+	}
+}
+
+
+/* Nav "Siblings" affected by hammernav */
+.hammernav-sibling{
+	@include transform( translate3d(0,0,0) );
+	z-index: 1;
+
+	&.hammernav-open{
+
+		&.hammernav-left{
+			@include transform( translate3d($horizontal-drawer-width,0,0) );
+			@include animation( uncoverLeft .3s ease-in-out );
+		}
+
+		&.hammernav-right{
+			@include transform( translate3d(-$horizontal-drawer-width,0,0) );
+			@include animation( uncoverRight .3s ease-in-out );
+		}
+
+		&.hammernav-top{
+			@include transform(translate3d(0,$vertical-drawer-height,0));
+			@include animation(uncoverTop .3s ease-in-out);
+		}
+
+		&.hammernav-bottom{
+			@include transform(translate3d(0,-200%,0));
+			@include animation(uncoverBottom .3s ease-in-out);
+		}
+
+	}
+
+	&.hammernav-close{
+
+		&.hammernav-left{
+			@include transform( translate3d(0,0,0) );
+			@include animation( recoverLeft .3s ease-in-out );
+		}
+
+		&.hammernav-right{
+			@include transform(translate3d(0,0,0));
+			@include animation(recoverRight .3s ease-in-out);
+		}
+
+		&.hammernav-top{
+			@include transform(translate3d(0,0,0));
+			@include animation(recoverTop .3s ease-in-out);
+		}
+
+		&.hammernav-bottom{
+			@include transform(translate3d(0,0,0));
+			@include animation(recoverBottom .3s ease-in-out);
+		}
+
+	}
+
+}
+
+
+

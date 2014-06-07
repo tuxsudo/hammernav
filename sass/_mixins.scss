@@ -1,0 +1,26 @@
+@mixin animation($animation_shorthand_property){
+	animation: $animation_shorthand_property;
+	-moz-animation: $animation_shorthand_property;
+	-webkit-animation: $animation_shorthand_property;
+}
+
+
+// Create a named animation sequence that can be applied to elements later.
+//
+//     $name    - The name of your animation.
+//     @content - The keyframes of the animation.
+@mixin keyframes($name) {
+  @-moz-keyframes #{$name} { @content; }
+  @-webkit-keyframes #{$name} { @content; }
+  @-o-keyframes #{$name} { @content; }
+  @-ms-keyframes #{$name} { @content; }
+  @keyframes #{$name} { @content; }
+}
+
+
+@mixin backface-visibility($name){
+	backface-visibility:$name;
+	-moz-backface-visibility: $name;
+	-ms-backface-visibility: $name;
+	-webkit-backface-visibility: $name;
+}

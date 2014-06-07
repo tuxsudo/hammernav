@@ -1,0 +1,164 @@
+/* Reset */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* @end */
+
+
+
+
+/* Demo */
+
+
+body {
+	background-color: #000;
+
+	font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #9aa6af;
+	text-rendering: optimizelegibility;
+
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+
+	-moz-tap-highlight-color:rgba(0,0,0,0);
+	-moz-text-size-adjust: none;
+	-moz-font-smoothing: antialiased;
+
+	-ms-tap-highlight-color:rgba(0,0,0,0);
+	-ms-text-size-adjust: none;
+	-ms-font-smoothing: antialiased;
+}
+
+
+/*a {text-decoration: none;}*/
+
+
+
+
+
+
+header {
+	height: 60px;
+	position: relative;
+	background-color: #f3f5f6;
+}
+
+header h1 {
+	color: #9aa6af;
+	text-align: left;
+	font-size: 27px;
+	line-height: 60px;
+	font-weight: bold;
+	padding-left: 20px;
+}
+
+
+
+
+/*  Removable CSS  */
+
+.header-section,
+.body-section,
+.footer-section
+{padding: 20px;}
+
+.header-section {background-color: #ffffff;}
+.body-section {background-color: #f4f5f6;}
+.footer-section {background-color: #dadee1;}
+.placefiller {
+	text-align: center;
+	font-size: 20px;
+	border: 1px dashed rgba(190, 196, 202, 0.5);
+}
+.header-section .placefiller {line-height: 300px;}
+.body-section .placefiller {line-height: 900px;}
+.footer-section .placefiller {
+	line-height: 200px;
+	border: 1px dashed rgba(190, 196, 202, 0.9);
+}
+
+
+@media only screen and (min-width:781px){
+	.outer > *{
+		min-width:780px;
+		margin:0 auto;
+		max-width:80%;
+	}
+}
+
+
+/* PHONES AND TABLETS */
+@media only screen and (max-width: 780px) {
+
+header {
+	height: 60px;
+	z-index: 2;
+	background-color: #060a0c;
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+
+}
+
+header h1 {
+	color: #ffffff;
+	/*text-align: center;*/
+	padding-left: 5px;
+	display: block;
+}
+
+header .hammernav-toggler{
+	top:0;
+}
+
+.header-section {margin-top: 60px;}
+
+
+}
+
+

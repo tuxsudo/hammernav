@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>HammerNav</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="HandheldFriendly" content="True">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- Style Sheets -->
+<link rel="stylesheet" type="text/css" media="all" href="css/demo.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/hammernav.css" />
+<!-- Scripts -->
+<script src='js/jquery-1.9.js'></script>
+<script src="js/hammernav.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<![endif]-->
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+	<header>
+		<h1>HammerNav</h1>
+		<a class="hammernav-toggler right" id="navToggle" data-closed-text="X">&#9776;</a>
+	</header>
+
+	<nav class="">
+		<ul>
+			<li><a href="#" >HOME</a></li>
+			<li>
+				<a href="#"> TWO</a>
+				<ul>
+					<li><a href="#"> TWO-ONE</a></li>
+					<li><a href="#"> TWO-TWO</a></li>
+					<li>
+						<a href="#"> TWO-THREE</a>
+						<ul>
+							<li><a href="#"> TWO-THREE-ONE</a></li>
+							<li><a href="#"> TWO-THREE-TWO</a></li>
+							<li><a href="#"> TWO-THREE-THREE</a></li>
+							<li><a href="#"> TWO-THREE-FOUR</a></li>
+						</ul>
+					</li>
+					<li><a href="#"> FOUR</a></li>
+				</ul>
+			</li>
+			<li><a href="#"> THREE</a></li>
+			<li>
+				<a href="#"> FOUR</a>
+				<ul>
+					<li><a href="#"> FOUR-ONE</a></li>
+				</ul>
+			</li>
+			<li><a href="#"> FIVE</a></li>
+			<li>
+				<a href="#"> SIX</a>
+				<ul>
+					<li><a href="#"> SIX-ONE</a></li>
+					<li><a href="#"> SIX-TWO</a></li>
+					<li><a href="#"> SIX-THREE</a></li>
+					<li><a href="#"> SIX-FOUR</a></li>
+				</ul>
+			</li>
+			<li><a href="#"> SEVEN</a></li>
+		</ul>
+	</nav>
+
+	<div class="content">
+		<ul class="responsive">
+			<li class="header-section">
+				<p class="placefiller">Header</p>
+			</li>
+			<li class="body-section">
+				<p class="placefiller">Body</p>
+			</li>
+			<li class="footer-section">
+				<p class="placefiller">Footer</p>
+			</li>
+		</ul>
+	</div>
+
+</div>
+<script>
+$(function() {
+    $("nav").hammernav({ toggler:'#navToggle', siblings:'.content, header', parent:'.container', opts:'left push'} );
+    return;
+});
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+

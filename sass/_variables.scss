@@ -1,0 +1,100 @@
+/* COLORS */
+
+
+
+/* MEGA MENU */
+$megamenu-color-bg:#888;
+$megamenu-color-bg-highlight:#aaa;
+$megamenu-color-fg:#eee;
+$megamenu-color-fg-highlight:#fff;
+
+$megamenu-submenu-width:auto;
+$megamenu-submenu-padding:2em;
+
+
+$megamenu-submenu-color-bg:$megamenu-color-bg;
+$megamenu-submenu-color-bg-highlight:$megamenu-color-bg-highlight;
+$megamenu-submenu-color-fg:$megamenu-color-fg;
+$megamenu-submenu-color-fg-highlight:$megamenu-color-fg-highlight;
+
+$megamenu-link-padding:20px;
+$megamenu-submenu-link-padding:0;
+
+$megamenu-submenu-item-padding:10px;
+
+$megamenu-submenu-list-style:inside square none;
+
+
+/* Drawer Navs */
+$horizontal-drawer-width:320px;
+
+$vertical-drawer-width:100%;
+$vertical-drawer-height:780px;
+
+
+
+
+
+// Desktop Nav
+$color-bg-fullnav:#888;
+$color-bg-fullnav-highlight:#aaa;
+$color-fg-fullnav:#111;
+$color-fg-fullnav-highlight:#000;
+
+// Desktop Sub-Navs
+$color-bg-fullnav-subnavs:$color-bg-fullnav;
+$color-bg-fullnav-subnavs-highlight:$color-bg-fullnav-highlight;
+$color-fg-fullnav-subnavs:$color-fg-fullnav;
+$color-fg-fullnav-subnavs-highlight:$color-fg-fullnav-highlight;
+
+
+// Mobile & Tablet Nav
+$color-bg-drawernav:#2c2c2c;
+$color-bg-drawernav-highlight:#0c0c0c;
+$color-fg-drawernav:#afafaf;
+$color-fg-drawernav-highlight:#ccc;
+
+
+// Mobile & Tablet Sub-Navs
+$color-bg-drawernav-subnavs:$color-fg-drawernav;
+$color-bg-drawernav-subnavs-highlight:$color-fg-drawernav-highlight;
+$color-fg-drawernav-subnavs:$color-bg-drawernav;
+$color-fg-drawernav-subnavs-highlight:$color-bg-drawernav-highlight;
+
+
+$color-activate:#0f0;
+$color-deactivate:#f00;
+
+
+/* PADDING */
+$padding-fullnav-subnavs:0;
+// $padding-fullnav-submenu-desktop:$padding-fullnav-submenu;
+
+$padding-fullnav-subnavs-item:10px;
+$padding-drawernav-subnavs-item:10px;
+
+// DIMENSIONS
+
+// text icons (hamburger icon, expand, close, etc.)
+$icon-font-size:27px;
+$icon-line-height:60px;
+$icon-gutter-width:10px;
+
+
+// nav link padding
+$link-padding:24px 15px;
+$link-padding-desktop:$link-padding;
+$link-padding-tablet:$link-padding;
+$link-padding-mobile:$link-padding;
+
+
+// submenus
+$submenu-gutter:10px; // to show hierarchy on nested navs
+$submenu-padding:10px;
+$submenu-padding-desktop:$submenu-padding;
+$submenu-padding-tablet:$submenu-padding;
+$submenu-padding-mobile:$submenu-padding;
+$submenu-link-padding:5px 10px;
+$submenu-link-padding-desktop:$submenu-link-padding;
+$submenu-link-padding-tablet:$submenu-link-padding;
+$submenu-link-padding-mobile:$submenu-link-padding;

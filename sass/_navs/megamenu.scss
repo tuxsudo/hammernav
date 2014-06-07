@@ -1,0 +1,117 @@
+@import "compass/css3";
+@import "variables";
+@import "mixins";
+
+.hammernav-nav{
+
+	background-color: $megamenu-color-bg;
+	color: $megamenu-color-fg;
+
+	// float fix
+	&:after{
+
+		content: " ";
+		clear:both;
+	    display: table;
+
+	}
+
+
+	a{
+
+		color:$megamenu-color-fg;
+		padding:$megamenu-link-padding;
+
+		&:hover {
+			background-color: $megamenu-color-bg-highlight;
+			color:$megamenu-color-fg-highlight;
+		}
+
+	}
+
+	> ul {
+
+		position:relative;
+
+
+		> li {
+
+			// level 1 menu items
+			float: left;
+
+			// menus exactly 2 levels deep (non-activated & activated)
+			> ul {
+
+				display:none;
+				height:0;
+				left:0;
+				right:0;
+				margin:0;
+				overflow:hidden;
+				padding:$megamenu-submenu-padding;
+				position:absolute;
+				z-index:100;
+				// @include animation( closeUp .3s ease-in-out );
+
+				> li {
+					float: left;
+				}
+
+			}
+
+			// menus 2+ levels deep (non-activated & activated)
+			ul{
+				background-color:$megamenu-submenu-color-bg;
+				color:$megamenu-submenu-color-fg;
+				// padding:$submenu-padding;
+
+				li{
+					padding:$megamenu-submenu-item-padding;
+				}
+
+				a{
+					color:$megamenu-submenu-color-fg;
+					padding:$megamenu-submenu-link-padding;
+
+					&:hover{
+						color:$megamenu-submenu-color-fg-highlight;
+					}
+
+				}
+
+				//menus 3+ levels deep (non-activated & activated)
+				ul{
+
+					li{
+
+						float:none;
+						list-style:$megamenu-submenu-list-style;
+					}
+				}
+			}
+
+			// level 1 menu -- activated state only
+			&:hover, &.active {
+				background-color: $megamenu-color-bg-highlight;
+				color:$megamenu-color-fg-highlight;
+
+				// menus: exactly 2 levels deep (activated)
+				> ul {
+					display:block;
+					height:auto;
+					overflow:hidden;
+					@include animation( openDown .1s ease-in-out );
+				}
+
+				// menus: 2+ levels deep (activated)
+				ul{
+					background-color: $megamenu-submenu-color-bg-highlight;
+					color:$megamenu-submenu-color-bg-highlight;
+
+				}
+			}
+
+		}
+	}
+
+}
