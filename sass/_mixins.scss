@@ -24,3 +24,13 @@
 	-ms-backface-visibility: $name;
 	-webkit-backface-visibility: $name;
 }
+
+@mixin clearfix{
+	&:after{
+
+		content: " ";
+		clear:both;
+	    display: table;
+
+	}
+}

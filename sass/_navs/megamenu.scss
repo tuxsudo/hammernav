@@ -2,25 +2,25 @@
 @import "variables";
 @import "mixins";
 
+
+.hammernav-toggler {
+	display:none;
+}
+
 .hammernav-nav{
 
 	background-color: $megamenu-color-bg;
 	color: $megamenu-color-fg;
 
-	// float fix
-	&:after{
-
-		content: " ";
-		clear:both;
-	    display: table;
-
-	}
+	@include clearfix;
 
 
 	a{
 
 		color:$megamenu-color-fg;
+		display:block;
 		padding:$megamenu-link-padding;
+		text-decoration: none;
 
 		&:hover {
 			background-color: $megamenu-color-bg-highlight;
@@ -51,7 +51,6 @@
 				padding:$megamenu-submenu-padding;
 				position:absolute;
 				z-index:100;
-				// @include animation( closeUp .3s ease-in-out );
 
 				> li {
 					float: left;
@@ -63,6 +62,7 @@
 			ul{
 				background-color:$megamenu-submenu-color-bg;
 				color:$megamenu-submenu-color-fg;
+				// display:block;
 				// padding:$submenu-padding;
 
 				li{
@@ -91,7 +91,7 @@
 			}
 
 			// level 1 menu -- activated state only
-			&:hover, &.active {
+			&:hover, &.hammernav-open {
 				background-color: $megamenu-color-bg-highlight;
 				color:$megamenu-color-fg-highlight;
 
@@ -107,6 +107,7 @@
 				ul{
 					background-color: $megamenu-submenu-color-bg-highlight;
 					color:$megamenu-submenu-color-bg-highlight;
+					display:block;
 
 				}
 			}

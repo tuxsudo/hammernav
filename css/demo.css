@@ -121,6 +121,19 @@ header h1 {
 }
 
 
+header .hammernav-toggler{
+	font-size:32px;
+	line-height:60px;
+	margin-right:5px;
+	position:absolute;
+	right:0;
+	top:0;
+}
+
+
+
+
+
 @media only screen and (min-width:781px){
 	.outer > *{
 		min-width:780px;
@@ -152,13 +165,18 @@ header h1 {
 	display: block;
 }
 
-header .hammernav-toggler{
-	top:0;
+
+.header-section {
+	margin-top: 60px;
 }
 
-.header-section {margin-top: 60px;}
+
+.hammernav-nav{
+	font-size:14px;
+}
 
 
 }
+
 
 

@@ -1,0 +1,53 @@
+@import "compass/css3";
+@import "variables";
+@import "mixins";
+
+
+.hammernav-parent {
+
+	* {
+		@include box-sizing(border-box);
+	}
+
+}
+
+
+/* MENU ICON */
+.hammernav-toggler {
+	display:none;
+}
+
+
+/* NAV DEFAULTS */
+.hammernav-nav {
+
+	@include clearfix;
+
+	background-color:$menu-color-bg;
+	color:$menu-color-fg;
+
+	li {
+		float:$menu-item-float;
+
+		a {
+			color:$menu-color-fg;
+			display: block;
+			padding: $menu-link-padding;
+			text-decoration: none;
+		}
+
+	}
+
+	> ul li ul{
+		background-color:$submenu-color-bg;
+		color:$submenu-color-fg;
+		display:$submenu-display;
+		li{
+			float:$submenu-item-float;
+		}
+		a{
+			color:$submenu-color-fg;
+		}
+	}
+
+}

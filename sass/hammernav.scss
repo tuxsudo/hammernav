@@ -4,46 +4,15 @@
 @import "keyframes";
 
 
-/* MENU ICON */
-.hammernav-toggler {
-	color:white;
-	cursor:pointer;
-	display: none;
-	font-size:$icon-font-size;
-	left:$icon-gutter-width;
-	line-height:$icon-line-height;
-	position: absolute;
-
-	&.right{
-		left:auto;
-		right:$icon-gutter-width;
-	}
-}
-
-
-/* NAV DEFAULTS */
-.hammernav-nav {
-
-	background-color:$color-bg-fullnav;
-	color:$color-fg-fullnav;
-
-	li {
-
-		a {
-			padding: $link-padding;
-			display: block;
-			text-decoration: none;
-		}
-
-	}
-
-}
+// @import "_navs/default";
+// @import "_navs/megamenu";
+@import "_navs/uncovermenu";
 
 
 /* Desktop Width and above */
 @media only screen and (min-width: 781px) {
 
-	@import "_navs/megamenu";
+	// @import "_navs/megamenu";
 
 }
 
@@ -51,12 +20,12 @@
 /* PHONES AND TABLETS */
 @media only screen and (max-width: 780px) {
 
-	@import "_navs/uncovermenu";
+	// @import "_navs/uncovermenu";
 
 }
 
 /* (PH|T)ABLETS */
-@media only screen and (min-width: 479px) and (max-width:780px) {}
+//@media only screen and (min-width: 479px) and (max-width:780px) {}
 
 
 

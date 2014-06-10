@@ -33,7 +33,7 @@
 		<a class="hammernav-toggler right" id="navToggle" data-closed-text="X">&#9776;</a>
 	</header>
 
-	<nav class="">
+	<nav class="nav">
 		<ul>
 			<li><a href="#" >HOME</a></li>
 			<li>
@@ -91,7 +91,7 @@
 </div>
 <script>
 $(function() {
-    $("nav").hammernav({ toggler:'#navToggle', siblings:'.content, header', parent:'.container', opts:'left push'} );
+    $(".nav").hammernav({ toggler:'#navToggle', siblings:'.content, header', parent:'.container', opts:'right push'} );
     return;
 });
 

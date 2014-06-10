@@ -8,38 +8,25 @@
 	/*  No Flickering  */
 	@include backface-visibility(hidden);
 
-	* {
-		@include box-sizing(border-box);
-	}
-
 }
 
 /* MENU ICON */
 .hammernav-toggler {
-	color:white;
-	cursor:pointer;
 	display: block;
-	// font-size:$icon-font-size;
-	// left:$icon-gutter-width;
-	// line-height:$icon-line-height;
-	// position: absolute;
-
-	&.right{
-		left:auto;
-		right:$icon-gutter-width;
-	}
 
 }
 
 
 /*  Nav Drawer Layout  */
 .hammernav-nav {
-	background-color: $color-bg-drawernav;
-	color:$color-fg-drawernav;
-	// height: 100%;
+	background-color: $drawermenu-color-bg;
+	color:$drawermenu-color-fg;
+	height: 100%;
 	left: 0;
 	margin: 0;
 	opacity: 0.3;
+	overflow-x:hidden;
+	overflow-y:auto;
 	position: fixed;
 	top: 0;
 	width: $horizontal-drawer-width;
@@ -54,43 +41,66 @@
 		overflow:hidden;
 
 		a {
-			color:$color-fg-drawernav;
+			color:$drawermenu-color-fg;
+			display:block;
+			padding:$drawermenu-link-padding;
+			text-decoration:none;
+
+			.hammernav-toggler {
+				display: block;
+				float:right;
+				top:0;
+
+				&:hover, &:active{
+					color:$drawermenu-color-fg-highlight;
+				}
+
+				&.hammernav-open{
+					color:$drawermenu-color-fg-highlight;
+					&:hover, &:active{
+						// color:$color-deactivate;
+					}
+				}
+			}
+
 			&.active, &:active{
-				color: $color-fg-drawernav-highlight;
-				background-color: $color-bg-drawernav-highlight;
+				color: $drawermenu-color-fg-highlight;
+				background-color: $drawermenu-color-bg-highlight;
 			}
 		}
 
 		// sub menus
 		ul{
-			background-color:$color-bg-drawernav-subnavs;
-			color:$color-fg-drawernav-subnavs;
+			background-color:$drawermenu-submenu-color-bg;
+			color:$drawermenu-submenu-color-fg;
 			display:block;
 			height:0;
+			position:static;
 			@include animation( closeUp .25s ease-in-out );
 
-			>li > a{
-				color:$color-fg-drawernav-subnavs;
+			>li > a {
+				color:$drawermenu-submenu-color-fg;
+
 			}
 
 		}
 
 		&:hover{
-			background-color:$color-bg-drawernav-highlight;
-			color:$color-fg-drawernav-highlight;
+			background-color:$drawermenu-submenu-color-bg-highlight;
+			color:$drawermenu-submenu-color-fg-highlight;
 			> a{
-				color:$color-fg-drawernav-highlight;
+				color:$drawermenu-submenu-color-fg-highlight;
 			}
 
 		}
 
-		&.active, &:active{
-			background-color:$color-bg-drawernav-highlight;
-			border-bottom:$color-bg-drawernav-highlight;
-			color:$color-fg-drawernav-highlight;
+		&.hammernav-open, &:active{
+			background-color:$drawermenu-submenu-color-bg-highlight;
+			border-bottom:$drawermenu-submenu-color-bg-highlight;
+			color:$drawermenu-submenu-color-fg-highlight;
 
 			> a {
-				color:$color-fg-drawernav-highlight;
+				color:$drawermenu-submenu-color-fg-highlight;
 			}
 
 			// activated submenus
@@ -146,29 +156,12 @@
 	}
 
 
-	.hammernav-subnav-expander {
-		display: block;
-		float:right;
-		padding:0 $icon-gutter-width;
-		top:0;
-
-		&:hover, &:active{
-			color:$color-activate;
-		}
-	}
 
 
-
-	.active > a > .hammernav-subnav-expander {
-		color:$color-activate;
-		&:hover, &:active{
-			color:$color-deactivate;
-		}
-	}
 }
 
 
-/* Nav "Siblings" affected by hammernav */
+/* Nav Siblings to push out of the way */
 .hammernav-sibling{
 	@include transform( translate3d(0,0,0) );
 	z-index: 1;
