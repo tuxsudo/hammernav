@@ -14,11 +14,12 @@
 
 
 
-	@import "_navs/megamenu";
+	@import "navs/megamenu";
 	// @import "_navs/default";
-	.nav{
-		float:right;
-	}
+	// .nav{
+	// 	float:right;
+	// }
+
 
 	nav.search, .icons{
 		display:none
@@ -31,8 +32,10 @@
 /* PHONES AND TABLETS */
 @media only screen and (max-width: 780px) {
 
-	@import "_navs/uncovermenu";
-
+	@import "drawers/uncoverleft";
+	@import "drawers/uncoverright";
+	@import "drawers/coverleft";
+	@import "drawers/coverright";
 }
 
 /* (PH|T)ABLETS */

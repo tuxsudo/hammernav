@@ -42,7 +42,7 @@
 	&.hammernav-right{
 		left:auto;
 		right:0;
-		@include transform(translate3d(0,0,0)scale(.97) );
+		@include transform(translate3d(0,0,0) scale(.97) );
 
 	}
 
@@ -51,6 +51,7 @@
 	}
 
 	&.hammernav-open {
+		color:$drawermenu-color-fg-highlight;
 		display:block;
 		opacity: 1;
 
@@ -99,15 +100,9 @@
 				float:right;
 				top:0;
 
-				&:hover, &:active{
-					color:$drawermenu-color-fg-highlight;
-				}
-
 				&.hammernav-open{
-					color:$drawermenu-color-fg-highlight;
-					&:hover, &:active{
-						// color:$color-deactivate;
-					}
+					color:$drawermenu-submenu-color-fg-highlight;
+
 				}
 			}
 

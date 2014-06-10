@@ -35,7 +35,19 @@
 				Brand
 			</a>
 		</h1>
-		<nav class="nav">
+		<div class="icons">
+			<a class="hammernav-toggler right" id="navToggle">&#9776;</a>
+			<!-- <a class="hammernav-toggler right search" id="searchToggle">&#984;</a> -->
+		</div>
+
+	</header>
+
+	<nav class="nav">
+		<form class="search">
+			<input type="text" name="" placeholder="search" /><input type="button" value="&#984;" />
+		</form>
+
+
 		<ul>
 			<li><a href="#" >ONE</a></li>
 			<li>
@@ -73,31 +85,23 @@
 				</ul>
 			</li>
 			<li><a href="#">SEVEN</a></li>
+			<li><a class="hammernav-toggler search" id="searchToggle">&#984;</a></li>
 		</ul>
 	</nav>
 
-	<nav class="search">
-		<form>
-		<input type="text" name="" placeholder="search" /><input type="button" value="&#984;" />
-		</form>
-	</nav>
-		<div class="icons">
-			<a class="hammernav-toggler right" id="navToggle">&#9776;</a>
-			<a class="hammernav-toggler right search" id="searchToggle">&#984;</a>
-		</div>
-	</header>
+
 
 
 	<div class="content">
 		<ul class="responsive">
 			<li class="header-section">
-				<p class="placefiller">Header</p>
+				<p class="placefiller">Content Header</p>
 			</li>
 			<li class="body-section">
-				<p class="placefiller">Body</p>
+				<p class="placefiller">Content Body</p>
 			</li>
 			<li class="footer-section">
-				<p class="placefiller">Footer</p>
+				<p class="placefiller">Content Footer</p>
 			</li>
 		</ul>
 	</div>
@@ -106,8 +110,8 @@
 <script>
 
 $(function() {
-    $(".nav").hammernav({ toggler:'#navToggle', siblings:'.content, header h1', parent:'.container', options:'right'} );
-    $("nav.search").hammernav({toggler:'#searchToggle', siblings:'.content, header h1, header div', parent:'.container', options:'left'});
+    $(".nav").hammernavdrawer({ toggler:'#navToggle', siblings:'.content, header', parent:'.container', options:'uncoverright'} );
+    // $("form.search").hammernav({toggler:'#searchToggle', siblings:'.content, header', parent:'.container', options:'top'});
 });
 
 </script>

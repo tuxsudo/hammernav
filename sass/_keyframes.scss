@@ -37,6 +37,7 @@
 	100%{@include transform( translate3d($horizontal-drawer-width,0,0) ) }
 }
 
+
 @include keyframes(recoverLeft) {
 	0%{ @include transform(translate3d($horizontal-drawer-width,0,0)) }
 	70%{@include transform( translate3d(-$horizontal-drawer-width*.1,0,0) ) }
@@ -79,6 +80,39 @@
 	100%{@include transform( translate3d(0,0,0)) }
 
 }
+
+
+
+@include keyframes(coverLeft) {
+	0%{@include transform( translate3d(-110%,0,0) ) }
+	70%{@include transform( translate3d(0%,0,0) ); padding-left:10%; }
+	100%{@include transform( translate3d(0,0,0) ) }
+}
+
+
+@include keyframes(undoCoverLeft) {
+	0%{ @include transform(translate3d(0,0,0)) }
+	5%{ padding-left:10%; }
+	70%{@include transform( translate3d(-110%,0,0) );  }
+	// 100%{@include transform( translate3d(-100%,0,0) ) }
+}
+
+
+@include keyframes(coverRight) {
+	0%{@include transform( translate3d(110%,0,0) ) }
+	70%{@include transform( translate3d(0%,0,0) ); padding-left:10%; }
+	100%{@include transform( translate3d(0,0,0) ) }
+}
+
+
+@include keyframes(undoCoverRight) {
+	0%{ @include transform(translate3d(0,0,0)) }
+	5%{ padding-left:10%; }
+	70%{@include transform( translate3d(50%,0,0) ); padding-left:20%; }
+	100%{@include transform( translate3d(110%,0,0) ) }
+}
+
+
 
 
 

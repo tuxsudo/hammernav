@@ -72,10 +72,10 @@ $drawermenu-color-bg-highlight:#0c0c0c;
 $drawermenu-color-fg:#afafaf;
 $drawermenu-color-fg-highlight:#ccc;
 
-$drawermenu-submenu-color-bg:$drawermenu-color-fg;
-$drawermenu-submenu-color-bg-highlight:$drawermenu-color-fg-highlight;
-$drawermenu-submenu-color-fg:$drawermenu-color-bg;
-$drawermenu-submenu-color-fg-highlight:$drawermenu-color-bg-highlight;
+$drawermenu-submenu-color-bg:$drawermenu-color-bg;
+$drawermenu-submenu-color-bg-highlight:$drawermenu-color-bg-highlight;
+$drawermenu-submenu-color-fg:$drawermenu-color-fg;
+$drawermenu-submenu-color-fg-highlight:$drawermenu-color-fg-highlight;
 
 // nav > ul
 $drawermenu-padding:0;
@@ -106,7 +106,7 @@ $drawermenu-submenu-link-padding:0;
 $horizontal-drawer-width:320px;
 
 $vertical-drawer-width:100%;
-$vertical-drawer-height:780px;
+$vertical-drawer-height:200px;
 
 
 
