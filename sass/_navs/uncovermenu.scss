@@ -8,6 +8,11 @@
 	/*  No Flickering  */
 	@include backface-visibility(hidden);
 
+	* {
+		@include box-sizing(border-box);
+	}
+
+
 }
 
 /* MENU ICON */
@@ -21,6 +26,7 @@
 .hammernav-nav {
 	background-color: $drawermenu-color-bg;
 	color:$drawermenu-color-fg;
+	display:none;
 	height: 100%;
 	left: 0;
 	margin: 0;
@@ -32,6 +38,48 @@
 	width: $horizontal-drawer-width;
 
 	@include transform( translate3d(5%,0,0) scale(.97) );
+
+	&.hammernav-right{
+		left:auto;
+		right:0;
+		@include transform(translate3d(0,0,0)scale(.97) );
+
+	}
+
+	&.hammernav-top, &.hammernav-bottom{
+		width:$vertical-drawer-width;
+	}
+
+	&.hammernav-open {
+		display:block;
+		opacity: 1;
+
+		@include transform( translate3d(0,0,0)scale(1) );
+		@include animation( popUpLeft .35s ease-in-out );
+
+	}
+
+	&.hammernav-right-open {
+		@include transform( translate3d(0,0,0)scale(1) );
+		@include animation( popUpRight .35s ease-in-out );
+	}
+
+	&.hammernav-close {
+		display:none;
+		opacity: .3;
+	}
+
+
+	&.hammernav-left-close{
+		@include transform( translate3d(5%,0,0)scale(.97) );
+		@include animation( pushDownLeft .3s ease-in-out );
+	}
+
+	&.hammernav-right-close{
+		@include transform(translate3d(0,0,0)scale(.97) );
+		@include animation( pushDownRight .35s ease-in-out );
+	}
+
 
 
 	li{
@@ -118,44 +166,6 @@
 		overflow-y: scroll;
 	}
 
-	&.hammernav-right{
-		left:auto;
-		right:0;
-		@include transform(translate3d(0,0,0)scale(.97) );
-
-		&.hammernav-open {
-			@include transform( translate3d(0,0,0)scale(1) );
-			@include animation( popUpRight .35s ease-in-out );
-		}
-	}
-
-	&.hammernav-top, &.hammernav-bottom{
-		width:$vertical-drawer-width;
-	}
-
-	&.hammernav-open {
-		opacity: 1;
-
-		@include transform( translate3d(0,0,0)scale(1) );
-		@include animation( popUpLeft .35s ease-in-out );
-
-	}
-
-	&.hammernav-close {
-		opacity: .3;
-
-		&.hammernav-left{
-			@include transform( translate3d(5%,0,0)scale(.97) );
-			@include animation( pushDownLeft .3s ease-in-out );
-		}
-
-		&.hammernav-right{
-			@include transform(translate3d(0,0,0)scale(.97) );
-			@include animation( pushDownRight .35s ease-in-out );
-		}
-	}
-
-
 
 
 }
@@ -164,55 +174,54 @@
 /* Nav Siblings to push out of the way */
 .hammernav-sibling{
 	@include transform( translate3d(0,0,0) );
-	z-index: 1;
+	// z-index: 1;
 
-	&.hammernav-open{
-
-		&.hammernav-left{
-			@include transform( translate3d($horizontal-drawer-width,0,0) );
-			@include animation( uncoverLeft .3s ease-in-out );
-		}
-
-		&.hammernav-right{
-			@include transform( translate3d(-$horizontal-drawer-width,0,0) );
-			@include animation( uncoverRight .3s ease-in-out );
-		}
-
-		&.hammernav-top{
-			@include transform(translate3d(0,$vertical-drawer-height,0));
-			@include animation(uncoverTop .3s ease-in-out);
-		}
-
-		&.hammernav-bottom{
-			@include transform(translate3d(0,-200%,0));
-			@include animation(uncoverBottom .3s ease-in-out);
-		}
-
-	}
 
 	&.hammernav-close{
-
-		&.hammernav-left{
-			@include transform( translate3d(0,0,0) );
-			@include animation( recoverLeft .3s ease-in-out );
-		}
-
-		&.hammernav-right{
-			@include transform(translate3d(0,0,0));
-			@include animation(recoverRight .3s ease-in-out);
-		}
-
-		&.hammernav-top{
-			@include transform(translate3d(0,0,0));
-			@include animation(recoverTop .3s ease-in-out);
-		}
-
-		&.hammernav-bottom{
-			@include transform(translate3d(0,0,0));
-			@include animation(recoverBottom .3s ease-in-out);
-		}
-
+		@include transform( translate3d(0,0,0) );
+		@include animation( recoverLeft .3s ease-in-out );
 	}
+
+	&.hammernav-right-close{
+		@include transform(translate3d(0,0,0));
+		@include animation(recoverRight .3s ease-in-out);
+	}
+
+	&.hammernav-top-close{
+		@include transform(translate3d(0,0,0));
+		@include animation(recoverTop .3s ease-in-out);
+	}
+
+	&.hammernav-bottom-close{
+		@include transform(translate3d(0,0,0));
+		@include animation(recoverBottom .3s ease-in-out);
+	}
+
+
+
+
+	&.hammernav-open{
+		@include transform( translate3d($horizontal-drawer-width,0,0) );
+		@include animation( uncoverLeft .3s ease-in-out );
+	}
+
+	&.hammernav-right-open{
+		@include transform( translate3d(-$horizontal-drawer-width,0,0) );
+		@include animation( uncoverRight .3s ease-in-out );
+	}
+
+	&.hammernav-top-open{
+		@include transform(translate3d(0,$vertical-drawer-height,0));
+		@include animation(uncoverTop .3s ease-in-out);
+	}
+
+	&.hammernav-bottom-open{
+		@include transform(translate3d(0,-200%,0));
+		@include animation(uncoverBottom .3s ease-in-out);
+	}
+
+
+
 
 }
 

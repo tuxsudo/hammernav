@@ -3,18 +3,12 @@
 @import "mixins";
 
 
-.hammernav-parent {
 
-	* {
-		@include box-sizing(border-box);
-	}
-
-}
 
 
 /* MENU ICON */
 .hammernav-toggler {
-	display:none;
+	// display:none;
 }
 
 

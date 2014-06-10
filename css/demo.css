@@ -72,6 +72,9 @@ body {
 	-ms-font-smoothing: antialiased;
 }
 
+* {
+	box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box;
+}
 
 /*a {text-decoration: none;}*/
 
@@ -86,19 +89,50 @@ header {
 	background-color: #f3f5f6;
 }
 
+header a{
+	color: #9aa6af;
+	opacity:1;
+	text-decoration: none;
+}
+
+header a:hover{
+	opacity: .8;
+}
+
 header h1 {
 	color: #9aa6af;
-	text-align: left;
+	float:left;
 	font-size: 27px;
-	line-height: 60px;
 	font-weight: bold;
-	padding-left: 20px;
+	line-height: 60px;
+	padding: 0 0 0 20px;
+	text-align: left;
 }
 
 
+header h1 img{
+	height:60px;
+	padding:5px 0;
+	vertical-align: top;
+	width:50px;
+}
 
 
-/*  Removable CSS  */
+header .icons .hammernav-toggler{
+	cursor: pointer;
+	font-size:32px;
+	line-height:60px;
+	margin-right:20px;
+	position:absolute;
+	right:0;
+	top:0;
+	z-index: 100;
+}
+
+header .icons .hammernav-toggler.search{
+	right:40px;
+}
+
 
 .header-section,
 .body-section,
@@ -121,17 +155,19 @@ header h1 {
 }
 
 
-header .hammernav-toggler{
-	font-size:32px;
-	line-height:60px;
-	margin-right:5px;
-	position:absolute;
-	right:0;
-	top:0;
+
+
+nav.search form{
+	padding:10px;
 }
 
 
-
+nav.search form input{
+	border:1px solid #aaa;
+	font-size:14px;
+	height:30px;
+	line-height:18px;
+}
 
 
 @media only screen and (min-width:781px){
@@ -158,12 +194,11 @@ header {
 
 }
 
-header h1 {
+header  a {
 	color: #ffffff;
-	/*text-align: center;*/
-	padding-left: 5px;
-	display: block;
+
 }
+
 
 
 .header-section {

@@ -29,50 +29,64 @@
 <div class="container">
 
 	<header>
-		<h1>HammerNav</h1>
-		<a class="hammernav-toggler right" id="navToggle" data-closed-text="X">&#9776;</a>
-	</header>
-
-	<nav class="nav">
+		<h1>
+			<a href="#">
+				<img src="http://placehold.it/100x100" alt="brand" />
+				Brand
+			</a>
+		</h1>
+		<nav class="nav">
 		<ul>
-			<li><a href="#" >HOME</a></li>
+			<li><a href="#" >ONE</a></li>
 			<li>
-				<a href="#"> TWO</a>
+				<a href="#">TWO</a>
 				<ul>
-					<li><a href="#"> TWO-ONE</a></li>
-					<li><a href="#"> TWO-TWO</a></li>
+					<li><a href="#">TWO - ONE</a></li>
+					<li><a href="#">TWO - TWO</a></li>
 					<li>
-						<a href="#"> TWO-THREE</a>
+						<a href="#">TWO-THREE</a>
 						<ul>
-							<li><a href="#"> TWO-THREE-ONE</a></li>
-							<li><a href="#"> TWO-THREE-TWO</a></li>
-							<li><a href="#"> TWO-THREE-THREE</a></li>
-							<li><a href="#"> TWO-THREE-FOUR</a></li>
+							<li><a href="#">TWO - THREE - ONE</a></li>
+							<li><a href="#">TWO - THREE - TWO</a></li>
+							<li><a href="#">TWO - THREE - THREE</a></li>
+							<li><a href="#">TWO - THREE - FOUR</a></li>
 						</ul>
 					</li>
-					<li><a href="#"> FOUR</a></li>
+					<li><a href="#">TWO - FOUR</a></li>
 				</ul>
 			</li>
-			<li><a href="#"> THREE</a></li>
+			<li><a href="#">THREE</a></li>
 			<li>
-				<a href="#"> FOUR</a>
+				<a href="#">FOUR</a>
 				<ul>
-					<li><a href="#"> FOUR-ONE</a></li>
+					<li><a href="#">FOUR - ONE</a></li>
 				</ul>
 			</li>
-			<li><a href="#"> FIVE</a></li>
+			<li><a href="#">FIVE</a></li>
 			<li>
-				<a href="#"> SIX</a>
+				<a href="#">SIX</a>
 				<ul>
-					<li><a href="#"> SIX-ONE</a></li>
-					<li><a href="#"> SIX-TWO</a></li>
-					<li><a href="#"> SIX-THREE</a></li>
-					<li><a href="#"> SIX-FOUR</a></li>
+					<li><a href="#">SIX - ONE</a></li>
+					<li><a href="#">SIX - TWO</a></li>
+					<li><a href="#">SIX - THREE</a></li>
+					<li><a href="#">SIX - FOUR</a></li>
 				</ul>
 			</li>
-			<li><a href="#"> SEVEN</a></li>
+			<li><a href="#">SEVEN</a></li>
 		</ul>
 	</nav>
+
+	<nav class="search">
+		<form>
+		<input type="text" name="" placeholder="search" /><input type="button" value="&#984;" />
+		</form>
+	</nav>
+		<div class="icons">
+			<a class="hammernav-toggler right" id="navToggle">&#9776;</a>
+			<a class="hammernav-toggler right search" id="searchToggle">&#984;</a>
+		</div>
+	</header>
+
 
 	<div class="content">
 		<ul class="responsive">
@@ -90,9 +104,10 @@
 
 </div>
 <script>
+
 $(function() {
-    $(".nav").hammernav({ toggler:'#navToggle', siblings:'.content, header', parent:'.container', opts:'right push'} );
-    return;
+    $(".nav").hammernav({ toggler:'#navToggle', siblings:'.content, header h1', parent:'.container', options:'right'} );
+    $("nav.search").hammernav({toggler:'#searchToggle', siblings:'.content, header h1, header div', parent:'.container', options:'left'});
 });
 
 </script>

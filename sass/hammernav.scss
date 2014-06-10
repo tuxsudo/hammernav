@@ -6,13 +6,24 @@
 
 // @import "_navs/default";
 // @import "_navs/megamenu";
-@import "_navs/uncovermenu";
+// @import "_navs/uncovermenu";
 
 
 /* Desktop Width and above */
 @media only screen and (min-width: 781px) {
 
-	// @import "_navs/megamenu";
+
+
+	@import "_navs/megamenu";
+	// @import "_navs/default";
+	.nav{
+		float:right;
+	}
+
+	nav.search, .icons{
+		display:none
+		// float:right;
+	}
 
 }
 
@@ -20,7 +31,7 @@
 /* PHONES AND TABLETS */
 @media only screen and (max-width: 780px) {
 
-	// @import "_navs/uncovermenu";
+	@import "_navs/uncovermenu";
 
 }
 

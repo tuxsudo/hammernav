@@ -5,7 +5,10 @@
 var HammerNav = function(nav, siblings, toggler, parent, options ){
 
     this.isactivated = false;
-    this.classes = options.replace(/(\S+)/g, "hammernav-$1");
+    this.classes={};
+    this.classes.default = options.replace(/(\S+)/g, "hammernav-$1");
+    this.classes.activated = "hammernav-open " + this.classes.default.replace(/(\S+)/g, "$1-open");
+    this.classes.deactivated = "hammernav-close " + this.classes.default.replace(/(\S+)/g, "$1-close");
 
     this.$nav = $(nav);
     this.$siblings = $(siblings);
@@ -18,10 +21,10 @@ var HammerNav = function(nav, siblings, toggler, parent, options ){
 }
 
 HammerNav.prototype.initClasses=function(){
-    this.$nav.addClass('hammernav-nav ' + this.classes);
-    this.$siblings.addClass('hammernav-sibling ' + this.classes);
-    this.$toggler.addClass('hammernav-toggler ' + this.classes);
-    this.$parent.addClass('hammernav-parent ' + this.classes);
+    this.$nav.addClass('hammernav-nav ' + this.classes.default);
+    this.$siblings.addClass('hammernav-sibling ' + this.classes.default);
+    this.$toggler.addClass('hammernav-toggler ' + this.classes.default);
+    this.$parent.addClass('hammernav-parent ' + this.classes.default);
     return this;
 }
 
@@ -49,6 +52,7 @@ HammerNav.prototype.initEvents=function(){
 HammerNav.prototype.initSubmenus=function(){
     var hammernav = this;
 
+
     this.$nav.find(" ul li > a ~ ul").each(function(i, element){
         // var $toggler = $("<span>").html("+");
         // $(element).prev().append( $toggler );
@@ -56,6 +60,7 @@ HammerNav.prototype.initSubmenus=function(){
         var subnav = new HammerNav(element, null, $(element).prev(), $(element).parent(), "" );
         hammernav.subnavs.push(subnav);
         $(element).addClass('hammernav-subnav').data("hammernav-obj", subnav );
+
     });
 
     // this.$nav.find(" ul li > a ~ ul").prev().addClass("hammernav-subnav-expander-container").append(
@@ -75,15 +80,22 @@ HammerNav.prototype.initSubmenus=function(){
 }
 
 
+HammerNav.prototype.reset=function(){
+    this.isactivated=false;
+    this.$items.removeClass(this.classes.activated).removeClass(this.classes.deactivated);
+    $.each(this.subnavs, function(k,subnav){ subnav.reset() });
+
+}
+
+
 HammerNav.prototype.open=function(){
     this.isactivated=true;
-    this.$items.removeClass('hammernav-close').addClass('hammernav-open');
+    this.$items.removeClass( this.classes.deactivated ).addClass( this.classes.activated );
 }
 
 HammerNav.prototype.close=function(){
-    this.isactivated=false;
-    $.each(this.subnavs, function(k,subnav){ subnav.close() });
-    this.$items.removeClass('hammernav-open').addClass('hammernav-close');
+    this.$items.removeClass(this.classes.activated).addClass(this.classes.deactivated);
+    setTimeout($.proxy(this.reset, this), 500);
 }
 
 HammerNav.prototype.toggle=function(){
@@ -93,9 +105,7 @@ HammerNav.prototype.toggle=function(){
 
 
 HammerNav.defaults = {
-    nav_activated_class:'hammernav-open',
-    nav_deactivated_class:'hammernav-close',
-    submenu_selector:" ul li > a ~ ul",
+    submenus:" ul li > a ~ ul",
     submenu_sticky_selector:'active',
     sumenu_expander:true
 
@@ -103,12 +113,12 @@ HammerNav.defaults = {
 
 
 
-$.fn.hammernav=function(config){
+$.fn.hammernav=function(options){
     return $(this).each(function(){
-        config = $.extend({},{ siblings:$(this).siblings(), toggler:'.hammernav-toggler', parent:$(this).parent(), opts:'left push' }, config);
+        var config = $.extend( HammerNav.defaults, { 'siblings':$(this).siblings(), 'toggler':'.hammernav-toggler', 'parent':$(this).parent(), 'options':'left' }, options);
         var $element = $(this);
         if (! $element.data('hammernav-obj') ) {
-            $element.data('hammernav-obj', new HammerNav( $element, config.siblings, config.toggler, config.parent, config.opts ) );
+            $element.data('hammernav-obj', new HammerNav( $element, config.siblings, config.toggler, config.parent, config.options ) );
         }
     })
 }
