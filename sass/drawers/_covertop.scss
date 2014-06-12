@@ -6,22 +6,24 @@
 
 /* VARIABLES REQUIRED */
 
-// $horizontal-drawer-width
 
+$animation_duration:.35s;
 
+// absolute: scrolls; fixed: doesn't scroll;
+$covertop-drawer-position:absolute;
 
 
 
 @include keyframes(covertop-drawer-open) {
 	0%{@include transform( translate3d(0,-110%,0) ) }
-	70%{@include transform( translate3d(0,0,0) ); padding-bottom:3%;  }
+	70%{@include transform( translate3d(0,0,0) ); padding-top:5%;  }
 	100%{@include transform( translate3d(0,0,0) );  }
 }
 
 
 @include keyframes(covertop-drawer-close) {
 	0%{ @include transform(translate3d(0,0,0)) }
-	20%{ @include transform(translate3d(0,0,0)); padding-bottom:3%;  }
+	20%{ @include transform(translate3d(0,0,0)); padding-top:5%;  }
 	100%{@include transform( translate3d(0,-110%,0) );  }
 }
 
@@ -33,11 +35,12 @@
 
 
 .hammerdrawer-covertop-drawer{
-	// left: 0;
+	left:0;
 	margin: 0;
 	overflow-x:hidden;
 	overflow-y:auto;
-	position: fixed;
+	position: $covertop-drawer-position;
+	right:0;
 	top: 0;
 	z-index:-1;
 
@@ -47,14 +50,14 @@
 	&.hammerdrawer-covertop-open {
 		z-index:100;
 		@include transform( translate3d(0,0,0) );
-		@include animation( covertop-drawer-open .35s ease-in-out );
+		@include animation( covertop-drawer-open $animation_duration ease-in-out );
 
 	}
 
 	&.hammerdrawer-covertop-close {
 		z-index:100;
 		@include transform( translate3d(0,-110%,0) );
-		@include animation( covertop-drawer-close .3s ease-in-out );
+		@include animation( covertop-drawer-close $animation_duration ease-in-out );
 	}
 
 }

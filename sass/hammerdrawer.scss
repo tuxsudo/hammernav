@@ -1,12 +1,6 @@
 @import "compass/css3";
 @import "variables";
 @import "mixins";
-// @import "keyframes";
-
-.hammerdrawer-covertop-drawer, .hammerdrawer-coverbottom-drawer{
-	left:5%;
-	right:5%;
-}
 
 
 @import "drawers/uncoverleft";
@@ -54,6 +48,5 @@ form.search input{
 		display:block;
 	}
 }
-
 
 

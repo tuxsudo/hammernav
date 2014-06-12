@@ -19,13 +19,11 @@ $animation_duration:.3s;
 }
 
 
-
 @include keyframes(pushbottom-drawer-close){
 	0%{ @include transform( translate3d(0,0,0) ); }
 	70%{@include transform( translate3d(0,$vertical-drawer-height*1.1, 0) ) }
 	100%{ @include transform( translate3d(0, $vertical-drawer-height,0) ); }
 }
-
 
 
 @include keyframes(pushbottom-sibling-open) {

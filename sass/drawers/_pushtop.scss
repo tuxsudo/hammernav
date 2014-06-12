@@ -13,7 +13,7 @@ $animation_duration:.35s;
 
 @include keyframes(pushtop-drawer-open) {
 	0%{ @include transform( translate3d(0,-$vertical-drawer-height,0) ); }
-	70%{ @include transform( translate3d(0,$vertical-drawer-height*.05, 0)  ) }
+	70%{ @include transform( translate3d(0, 0, 0)  ); padding-top:$vertical-drawer-height*.05; }
 	100%{ @include transform( translate3d(0,0,0) ); }
 }
 
@@ -28,7 +28,6 @@ $animation_duration:.35s;
 
 @include keyframes(pushtop-drawer-close){
 	0%{ @include transform( translate3d(0,0,0) ); }
-	// 10%{@include transform( translate3d(0,-$vertical-drawer-height*.1, 0) ) }
 	70%{ @include transform( translate3d(0,-$vertical-drawer-height*1.1,0) ); }
 	100%{ @include transform( translate3d(0,-$vertical-drawer-height,0) ); }
 }
@@ -63,7 +62,7 @@ $animation_duration:.35s;
 	margin: 0;
 	overflow-x:hidden;
 	overflow-y:auto;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	width: 100%;
 	z-index:-2;
