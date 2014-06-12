@@ -1,0 +1,60 @@
+@import "compass/css3";
+@import "variables";
+@import "mixins";
+
+
+
+/* VARIABLES REQUIRED */
+
+// $horizontal-drawer-width
+
+
+
+
+
+@include keyframes(covertop-drawer-open) {
+	0%{@include transform( translate3d(0,-110%,0) ) }
+	70%{@include transform( translate3d(0,0,0) ); padding-bottom:3%;  }
+	100%{@include transform( translate3d(0,0,0) );  }
+}
+
+
+@include keyframes(covertop-drawer-close) {
+	0%{ @include transform(translate3d(0,0,0)) }
+	20%{ @include transform(translate3d(0,0,0)); padding-bottom:3%;  }
+	100%{@include transform( translate3d(0,-110%,0) );  }
+}
+
+
+
+.hammerdrawer-covertop-parent {
+	overflow: hidden;
+}
+
+
+.hammerdrawer-covertop-drawer{
+	// left: 0;
+	margin: 0;
+	overflow-x:hidden;
+	overflow-y:auto;
+	position: fixed;
+	top: 0;
+	z-index:-1;
+
+	@include transform( translate3d(0,-110%,0) );
+
+
+	&.hammerdrawer-covertop-open {
+		z-index:100;
+		@include transform( translate3d(0,0,0) );
+		@include animation( covertop-drawer-open .35s ease-in-out );
+
+	}
+
+	&.hammerdrawer-covertop-close {
+		z-index:100;
+		@include transform( translate3d(0,-110%,0) );
+		@include animation( covertop-drawer-close .3s ease-in-out );
+	}
+
+}

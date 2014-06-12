@@ -12,10 +12,12 @@
 
 <!-- Style Sheets -->
 <link rel="stylesheet" type="text/css" media="all" href="css/demo.css" />
-<link rel="stylesheet" type="text/css" media="all" href="css/hammernav.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/hammerdrawer.css" />
+<!-- <link rel="stylesheet" type="text/css" media="all" href="css/hammernav.css" /> -->
 <!-- Scripts -->
 <script src='js/jquery-1.9.js'></script>
-<script src="js/hammernav.js"></script>
+<script src="js/hammerdrawer.js"></script>
+<!-- <script src="js/hammernav.js"></script> -->
 
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
@@ -36,17 +38,19 @@
 			</a>
 		</h1>
 		<div class="icons">
-			<a class="hammernav-toggler right" id="navToggle">&#9776;</a>
-			<!-- <a class="hammernav-toggler right search" id="searchToggle">&#984;</a> -->
+			<a class="hammerdrawer-toggler right drawercloser">x</a>
+			<a class="hammerdrawer-toggler right navtoggler">&#9776;</a>
+			<a class="hammerdrawer-toggler right searchtoggler">&#984;</a>
 		</div>
 
 	</header>
 
-	<nav class="nav">
-		<form class="search">
-			<input type="text" name="" placeholder="search" /><input type="button" value="&#984;" />
-		</form>
+	<form class="search">
+		<input type="text" name="" placeholder="search" /><input type="button" value="&#984;" />
+	</form>
 
+
+	<nav class="nav">
 
 		<ul>
 			<li><a href="#" >ONE</a></li>
@@ -85,7 +89,6 @@
 				</ul>
 			</li>
 			<li><a href="#">SEVEN</a></li>
-			<li><a class="hammernav-toggler search" id="searchToggle">&#984;</a></li>
 		</ul>
 	</nav>
 
@@ -107,11 +110,27 @@
 	</div>
 
 </div>
+
 <script>
 
 $(function() {
-    $(".nav").hammernavdrawer({ toggler:'#navToggle', siblings:'.content, header', parent:'.container', options:'uncoverright'} );
-    // $("form.search").hammernav({toggler:'#searchToggle', siblings:'.content, header', parent:'.container', options:'top'});
+    $("nav.nav").hammerdrawer({
+		'toggle':'.navtoggler',
+		// 'close': '.drawercloser',
+		'siblings':'.content, header',
+		// 'parent':'.container',
+		'options':'uncovertop'
+		// reset_timeout:3000
+	});
+
+    $("form.search").hammerdrawer({
+    	'toggle':'.searchtoggler',
+    	// 'close': '.drawercloser',
+    	siblings:'.content, header',
+    	// parent:'.container',
+		// reset_timeout:3000,
+    	options:'uncoverbottom'
+    });
 });
 
 </script>

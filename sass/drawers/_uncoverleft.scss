@@ -2,79 +2,107 @@
 @import "variables";
 @import "mixins";
 
-.hammernav-uncoverleft{
 
-	&.hammernav-parent {
-		overflow: hidden;
+/* VARIABLES REQUIRED */
 
-		/*  No Flickering  */
-		@include backface-visibility(hidden);
-
-		* {
-			@include box-sizing(border-box);
-		}
-	}
-
-	/*  Nav Drawer Layout  */
-	.hammernav-nav{
-		display:none;
-		height: 100%;
-		left: 0;
-		margin: 0;
-		opacity: 0.3;
-		overflow-x:hidden;
-		overflow-y:auto;
-		position: fixed;
-		top: 0;
-		width: $horizontal-drawer-width;
-
-		@include transform( translate3d(5%,0,0) scale(.97) );
-
-
-		&.hammernav-uncoverleft-open {
-			display:block;
-			opacity: 1;
-
-			@include transform( translate3d(0,0,0)scale(1) );
-			@include animation( popUpLeft .35s ease-in-out );
-
-		}
-
-		&.hammernav-uncoverleft-close {
-			display:none;
-			opacity: .3;
-			@include transform( translate3d(5%,0,0)scale(.97) );
-			@include animation( pushDownLeft .3s ease-in-out );
-		}
-
-	}
-
-
-	/* Drawer Siblings to push out of the way */
-	.hammernav-sibling{
-		@include transform( translate3d(0,0,0) );
-		// z-index: 1;
-
-
-		&.hammernav-uncoverleft-close{
-			@include transform( translate3d(0,0,0) );
-			@include animation( recoverLeft .3s ease-in-out );
-		}
-
-
-		&.hammernav-uncoverleft-open{
-			@include transform( translate3d($horizontal-drawer-width,0,0) );
-			@include animation( uncoverLeft .3s ease-in-out );
-		}
-
-
-	}
+// $horizontal-drawer-width
 
 
 
+
+
+@include keyframes(uncoverleft-drawer-open){
+	0%{opacity: .3; @include transform( translate3d(5%,0,0)scale(.98) ); }
+	100%{ opacity: 1; @include transform( translate3d(0,0,0)scale(1) ); }
+}
+
+@include keyframes(uncoverleft-drawer-close) {
+	0%{ opacity: 1; @include transform( translate3d(0,0,0)scale(1) ); }
+	30%{ opacity: .3; @include transform( translate3d(5%,0,0)scale(.98) ); }
+}
+
+
+@include keyframes(uncoverleft-sibling-open) {
+	0%{@include transform( translate3d(0,0,0) ) }
+	70%{@include transform( translate3d($horizontal-drawer-width*1.1,0,0)  ) }
+	100%{@include transform( translate3d($horizontal-drawer-width,0,0) ) }
+}
+
+
+@include keyframes(uncoverleft-sibling-close) {
+	0%{ @include transform(translate3d($horizontal-drawer-width,0,0)) }
+	70%{@include transform( translate3d(-$horizontal-drawer-width*.1,0,0) ) }
+	100%{@include transform( translate3d(0,0,0) ) }
 }
 
 
 
+.hammerdrawer-uncoverleft-parent {
+	overflow: hidden;
+
+	/*  No Flickering  */
+	@include backface-visibility(hidden);
+
+	* {
+		@include box-sizing(border-box);
+	}
+}
+
+/* Drawer   */
+.hammerdrawer-uncoverleft-drawer{
+	// display:none;
+	height: 100%;
+	left: 0;
+	margin: 0;
+	opacity: 0.3;
+	overflow-x:hidden;
+	overflow-y:auto;
+	position: fixed;
+	top: 0;
+	width: $horizontal-drawer-width;
+	z-index:-2;
+
+	@include transform( translate3d(5%,0,0) scale(.97) );
 
 
+	&.hammerdrawer-uncoverleft-open {
+		// display:block;
+		opacity: 1;
+		z-index:0;
+
+		@include transform( translate3d(0,0,0)scale(1) );
+		@include animation( uncoverleft-drawer-open .35s ease-in-out );
+
+	}
+
+	&.hammerdrawer-uncoverleft-close {
+		// display:none;
+		opacity: .3;
+		z-index:-1;
+		@include transform( translate3d(5%,0,0)scale(.97) );
+		@include animation( uncoverleft-drawer-close .3s ease-in-out );
+	}
+
+}
+
+
+/* Drawer Siblings to push out of the way */
+.hammerdrawer-uncoverleft-sibling{
+	@include transform( translate3d(0,0,0) );
+
+
+	&.hammerdrawer-uncoverleft-open{
+		@include transform( translate3d($horizontal-drawer-width,0,0) );
+		@include animation( uncoverleft-sibling-open .3s ease-in-out );
+	}
+
+
+	&.hammerdrawer-uncoverleft-close{
+		@include transform( translate3d(0,0,0) );
+		@include animation( uncoverleft-sibling-close .3s ease-in-out );
+	}
+
+
+
+
+}

@@ -1,0 +1,102 @@
+@import "compass/css3";
+@import "variables";
+@import "mixins";
+
+
+/* VARIABLES REQUIRED */
+
+// $vertical-drawer-height
+$animation_duration:.35s;
+
+
+
+
+@include keyframes(uncovertop-drawer-open){
+	0%{opacity: .3; @include transform( translate3d(5%,0,0)scale(.98) ); }
+	100%{ opacity: 1; @include transform( translate3d(0,0,0)scale(1) ); }
+}
+
+@include keyframes(uncovertop-drawer-close) {
+	0%{ opacity: 1; @include transform( translate3d(0,0,0)scale(1) ); }
+	30%{ opacity: .3; @include transform( translate3d(5%,0,0)scale(.98) ); }
+}
+
+
+@include keyframes(uncovertop-sibling-open) {
+	0%{@include transform( translate3d(0,0,0) ) }
+	70%{@include transform( translate3d(0,$vertical-drawer-height*1.1, 0)  ) }
+	100%{@include transform( translate3d(0,$vertical-drawer-height, 0) ) }
+}
+
+
+@include keyframes(uncovertop-sibling-close) {
+	0%{ @include transform(translate3d(0,$vertical-drawer-height,0)) }
+	70%{@include transform( translate3d(0,-$vertical-drawer-height*.1, 0) ) }
+	100%{@include transform( translate3d(0,0,0) ) }
+}
+
+
+
+.hammerdrawer-uncovertop-parent {
+	overflow: hidden;
+
+	/*  No Flickering  */
+	@include backface-visibility(hidden);
+
+	* {
+		@include box-sizing(border-box);
+	}
+}
+
+/* Drawer   */
+.hammerdrawer-uncovertop-drawer{
+	height: $vertical-drawer-height;
+	left: 0;
+	margin: 0;
+	opacity: 0.3;
+	overflow-x:hidden;
+	overflow-y:auto;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index:-2;
+
+	@include transform( translate3d(5%,0,0) scale(.97) );
+
+
+	&.hammerdrawer-uncovertop-open {
+		opacity: 1;
+		z-index:0;
+
+		@include transform( translate3d(0,0,0)scale(1) );
+		@include animation( uncovertop-drawer-open $animation_duration ease-in-out );
+
+	}
+
+	&.hammerdrawer-uncovertop-close {
+		opacity: .3;
+		z-index:-1;
+		@include transform( translate3d(5%,0,0)scale(.97) );
+		@include animation( uncovertop-drawer-close $animation_duration ease-in-out );
+	}
+
+}
+
+
+.hammerdrawer-uncovertop-sibling{
+	@include transform( translate3d(0,0,0) );
+
+
+	&.hammerdrawer-uncovertop-open{
+		@include transform( translate3d(0,$vertical-drawer-height, 0) );
+		@include animation( uncovertop-sibling-open $animation_duration ease-in-out );
+	}
+
+
+	&.hammerdrawer-uncovertop-close{
+		@include transform( translate3d(0,0,0) );
+		@include animation( uncovertop-sibling-close $animation_duration ease-in-out );
+	}
+
+
+}

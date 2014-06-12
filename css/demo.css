@@ -118,18 +118,21 @@ header h1 img{
 }
 
 
-header .icons .hammernav-toggler{
+header .icons .hammerdrawer-toggler{
 	cursor: pointer;
 	font-size:32px;
+	/*font-family: helvetica;*/
 	line-height:60px;
 	margin-right:20px;
 	position:absolute;
 	right:0;
+	text-align: center;
 	top:0;
+	vertical-align: middle;
 	z-index: 100;
 }
 
-header .icons .hammernav-toggler.search{
+header .icons .hammerdrawer-toggler.searchtoggler{
 	right:40px;
 }
 
@@ -157,12 +160,12 @@ header .icons .hammernav-toggler.search{
 
 
 
-nav.search form{
+form.search{
 	padding:10px;
 }
 
 
-nav.search form input{
+form.search input{
 	border:1px solid #aaa;
 	font-size:14px;
 	height:30px;

@@ -1,0 +1,112 @@
+@import "compass/css3";
+@import "variables";
+@import "mixins";
+
+
+/* VARIABLES REQUIRED */
+
+// $vertical-drawer-height
+$animation_duration:.3s;
+
+
+
+
+
+@include keyframes(pushbottom-drawer-open) {
+	0%{ @include transform( translate3d(0,$vertical-drawer-height,0) ); }
+	70%{@include transform( translate3d(0,-$vertical-drawer-height*.1, 0)  ) }
+	100%{ @include transform( translate3d(0,0,0) ); }
+}
+
+
+
+@include keyframes(pushbottom-drawer-close){
+	0%{ @include transform( translate3d(0,0,0) ); }
+	70%{@include transform( translate3d(0,$vertical-drawer-height*1.1, 0) ) }
+	100%{ @include transform( translate3d(0, $vertical-drawer-height,0) ); }
+}
+
+
+
+@include keyframes(pushbottom-sibling-open) {
+	0%{@include transform( translate3d(0,0,0) ) }
+	70%{@include transform( translate3d(0,-$vertical-drawer-height*1.1, 0)  ) }
+	100%{@include transform( translate3d(0,-$vertical-drawer-height, 0) ) }
+}
+
+
+@include keyframes(pushbottom-sibling-close) {
+	0%{ @include transform(translate3d(0,-$vertical-drawer-height,0)) }
+	70%{@include transform( translate3d(0,$vertical-drawer-height*.1, 0) ) }
+	100%{@include transform( translate3d(0,0,0) ) }
+}
+
+
+
+
+.hammerdrawer-pushbottom-parent {
+	overflow: hidden;
+
+	/*  No Flickering  */
+	@include backface-visibility(hidden);
+
+	* {
+		@include box-sizing(border-box);
+	}
+}
+
+/*  drawer Drawer Layout  */
+.hammerdrawer-pushbottom-drawer{
+	bottom:0;
+	height: $vertical-drawer-height;
+	right: 0;
+	margin: 0;
+	overflow-x:hidden;
+	overflow-y:auto;
+	position: fixed;
+	width:100%;
+	z-index:-2;
+
+	 @include transform(translate3d(0,-$vertical-drawer-height,0));
+
+
+	&.hammerdrawer-pushbottom-open {
+		z-index:0;
+
+		@include transform( translate3d(0,0,0) );
+		@include animation( pushbottom-drawer-open $animation_duration ease-in-out );
+
+	}
+
+	&.hammerdrawer-pushbottom-close {
+
+		z-index:-1;
+		@include transform( translate3d(0,$vertical-drawer-height ,0) );
+		@include animation( pushbottom-drawer-close $animation_duration ease-in-out );
+	}
+
+}
+
+
+/* Drawer Siblings to push out of the way */
+.hammerdrawer-pushbottom-sibling{
+	// @include transform( translate3d(0,0,0) );
+
+
+	&.hammerdrawer-pushbottom-open{
+		@include transform( translate3d(0,-$vertical-drawer-height, 0) );
+		@include animation( pushbottom-sibling-open $animation_duration ease-in-out );
+	}
+
+
+	&.hammerdrawer-pushbottom-close{
+		@include transform( translate3d(0,0,0) );
+		@include animation( pushbottom-sibling-close $animation_duration ease-in-out );
+	}
+
+}
+
+
+
+
+

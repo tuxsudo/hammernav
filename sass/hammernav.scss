@@ -4,24 +4,22 @@
 @import "keyframes";
 
 
-// @import "_navs/default";
-// @import "_navs/megamenu";
-// @import "_navs/uncovermenu";
+
 
 
 /* Desktop Width and above */
 @media only screen and (min-width: 781px) {
 
-
-
+	@import "drawers/uncoverleft";
 	@import "navs/megamenu";
+
 	// @import "_navs/default";
 	// .nav{
 	// 	float:right;
 	// }
 
 
-	nav.search, .icons{
+	.icons{
 		display:none
 		// float:right;
 	}
@@ -31,11 +29,53 @@
 
 /* PHONES AND TABLETS */
 @media only screen and (max-width: 780px) {
-
 	@import "drawers/uncoverleft";
 	@import "drawers/uncoverright";
 	@import "drawers/coverleft";
 	@import "drawers/coverright";
+
+	form.search, nav.nav{
+		background: #2c2c2c;
+		color:#afafaf;
+		a{
+			color:#afafaf;
+			text-decoration: none;
+		}
+	}
+
+	form.search input{
+		&[type=text]{
+			width:85%;
+		}
+		&[type=submit]{
+			width:15%;
+		}
+	}
+
+	.hammernav-uncoverright-parent{
+		header .icons .hammernav-toggler{
+			display:block;
+			&.drawercloser{
+				display:none;
+			}
+		}
+
+		&.hammernav-open header .icons .hammernav-toggler{
+			display:none;
+			&.drawercloser{
+				display:block;
+			}
+		}
+
+	}
+
+
+
+
+	// @import "drawers/uncoverleft";
+	// @import "drawers/uncoverright";
+	// @import "drawers/coverleft";
+	// @import "drawers/coverright";
 }
 
 /* (PH|T)ABLETS */
