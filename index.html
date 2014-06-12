@@ -114,23 +114,25 @@
 <script>
 
 $(function() {
+
     $("nav.nav").hammerdrawer({
 		'toggle':'.navtoggler',
 		// 'close': '.drawercloser',
 		'siblings':'.content, header',
 		// 'parent':'.container',
-		'options':'pushtop'
-		// reset_timeout:3000
+		// reset_timeout:3000,
+		'options':'coverright'
 	});
 
     $("form.search").hammerdrawer({
     	'toggle':'.searchtoggler',
     	// 'close': '.drawercloser',
-    	siblings:'.content, header',
+    	'siblings':'.content, header',
     	// parent:'.container',
 		// reset_timeout:3000,
-    	options:'pushbottom'
+    	'options':'coverleft'
     });
+
 });
 
 </script>

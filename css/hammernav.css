@@ -2313,7 +2313,6 @@
       -ms-transform: translate3d(0, 0, 0);
       -o-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
-      width: 320px;
     }
 }
 
@@ -2341,7 +2340,6 @@
       -ms-transform: translate3d(0, 0, 0);
       -o-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
-      width: 320px;
     }
 }
 
@@ -2369,7 +2367,6 @@
       -ms-transform: translate3d(0, 0, 0);
       -o-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
-      width: 320px;
     }
 }
 
@@ -2397,7 +2394,6 @@
       -ms-transform: translate3d(0, 0, 0);
       -o-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
-      width: 320px;
     }
 }
 
@@ -2425,7 +2421,6 @@
       -ms-transform: translate3d(0, 0, 0);
       -o-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
-      width: 320px;
     }
 }
 
@@ -2603,9 +2598,9 @@
     -ms-transform: translate3d(-100%, 0, 0);
     -o-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
-    animation: coverleft-drawer-close 0.3s ease-in-out;
-    -moz-animation: coverleft-drawer-close 0.3s ease-in-out;
-    -webkit-animation: coverleft-drawer-close 0.3s ease-in-out;
+    animation: coverleft-drawer-close 0.35s ease-in-out;
+    -moz-animation: coverleft-drawer-close 0.35s ease-in-out;
+    -webkit-animation: coverleft-drawer-close 0.35s ease-in-out;
   }
 
   /* MEGA MENU */
@@ -2921,9 +2916,9 @@
     -ms-transform: translate3d(100%, 0, 0);
     -o-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
-    animation: coverright-drawer-close 0.3s ease-in-out;
-    -moz-animation: coverright-drawer-close 0.3s ease-in-out;
-    -webkit-animation: coverright-drawer-close 0.3s ease-in-out;
+    animation: coverright-drawer-close 0.35s ease-in-out;
+    -moz-animation: coverright-drawer-close 0.35s ease-in-out;
+    -webkit-animation: coverright-drawer-close 0.35s ease-in-out;
   }
 
   form.search, nav.nav {

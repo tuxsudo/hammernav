@@ -6,7 +6,7 @@
 /* VARIABLES REQUIRED */
 
 // $horizontal-drawer-width
-
+$animation_duration:.35s;
 
 
 @include keyframes(coverright-drawer-open) {
@@ -49,14 +49,14 @@
 	&.hammerdrawer-coverright-open {
 		z-index:100;
 		@include transform( translate3d(0,0,0) );
-		@include animation( coverright-drawer-open .35s ease-in-out );
+		@include animation( coverright-drawer-open $animation_duration ease-in-out );
 
 	}
 
 	&.hammerdrawer-coverright-close {
 		z-index:100;
 		@include transform( translate3d(100%,0,0) );
-		@include animation( coverright-drawer-close .3s ease-in-out );
+		@include animation( coverright-drawer-close $animation_duration ease-in-out );
 	}
 
 }

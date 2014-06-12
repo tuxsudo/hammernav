@@ -7,7 +7,7 @@
 /* VARIABLES REQUIRED */
 
 // $horizontal-drawer-width
-
+$animation_duration:.35s;
 
 
 
@@ -15,7 +15,7 @@
 @include keyframes(coverleft-drawer-open) {
 	0%{@include transform( translate3d(-110%,0,0) ) }
 	70%{@include transform( translate3d(0,0,0) ); width:$horizontal-drawer-width*1.1 }
-	100%{@include transform( translate3d(0,0,0) ); width:$horizontal-drawer-width }
+	100%{@include transform( translate3d(0,0,0) );  }
 }
 
 
@@ -50,14 +50,14 @@
 	&.hammerdrawer-coverleft-open {
 		z-index:100;
 		@include transform( translate3d(0,0,0) );
-		@include animation( coverleft-drawer-open .35s ease-in-out );
+		@include animation( coverleft-drawer-open $animation_duration ease-in-out );
 
 	}
 
 	&.hammerdrawer-coverleft-close {
 		z-index:100;
 		@include transform( translate3d(-100%,0,0) );
-		@include animation( coverleft-drawer-close .3s ease-in-out );
+		@include animation( coverleft-drawer-close $animation_duration ease-in-out );
 	}
 
 }

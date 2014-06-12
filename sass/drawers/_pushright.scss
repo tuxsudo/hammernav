@@ -1,0 +1,110 @@
+@import "compass/css3";
+@import "variables";
+@import "mixins";
+
+
+/* VARIABLES REQUIRED */
+
+// $horizontal-drawer-width
+$animation_duration:.35s;
+
+
+
+
+@include keyframes(pushright-drawer-open){
+	0%{ @include transform( translate3d($horizontal-drawer-width,0,0) ); }
+	70%{ @include transform( translate3d(0, 0, 0)  ); width:$horizontal-drawer-width*1.05; }
+	100%{ @include transform( translate3d(0, 0, 0) ); }
+}
+
+@include keyframes(pushright-sibling-open) {
+	0%{@include transform( translate3d(0,0,0)) }
+	70%{@include transform( translate3d(-$horizontal-drawer-width*1.05,0,0) ) }
+	100%{@include transform( translate3d(-$horizontal-drawer-width,0,0)) }
+}
+
+
+
+@include keyframes(pushright-drawer-close) {
+	0%{ @include transform( translate3d(0,0,0) ) }
+	70%{ @include transform( translate3d($horizontal-drawer-width*1.05, 0, 0)  );  }
+	100%{ @include transform( translate3d($horizontal-drawer-width, 0, 0) ) }
+}
+
+
+@include keyframes(pushright-sibling-close) {
+	0%{@include transform( translate3d(-$horizontal-drawer-width,0,0)) }
+	70%{@include transform( translate3d($horizontal-drawer-width*.05,0,0) ) }
+	100%{@include transform( translate3d(0,0,0)) }
+}
+
+
+
+.hammerdrawer-pushright-parent {
+	overflow: hidden;
+
+	/*  No Flickering  */
+	@include backface-visibility(hidden);
+
+	* {
+		@include box-sizing(border-box);
+	}
+}
+
+/*  drawer Drawer Layout  */
+.hammerdrawer-pushright-drawer{
+	height: 100%;
+	right: 0;
+	margin: 0;
+	overflow-x:hidden;
+	overflow-y:auto;
+	position: fixed;
+	top: 0;
+	width: $horizontal-drawer-width;
+	z-index:-2;
+
+	@include transform( translate3d($horizontal-drawer-width, 0, 0) );
+
+
+	&.hammerdrawer-pushright-open {
+		z-index:0;
+
+		@include transform( translate3d(0,0,0) scale(1) );
+		@include animation( pushright-drawer-open $animation_duration ease-in-out );
+
+	}
+
+	&.hammerdrawer-pushright-close {
+		z-index:-1;
+		@include transform( translate3d($horizontal-drawer-width, 0, 0) );
+		@include animation( pushright-drawer-close $animation_duration ease-in-out );
+	}
+
+}
+
+
+/* Drawer Siblings to push out of the way */
+.hammerdrawer-pushright-sibling{
+	@include transform( translate3d(0,0,0) );
+
+
+	&.hammerdrawer-pushright-open{
+		@include transform( translate3d(-$horizontal-drawer-width,0,0) );
+		@include animation( pushright-sibling-open $animation_duration ease-in-out );
+	}
+
+
+	&.hammerdrawer-pushright-close{
+		@include transform( translate3d(0,0,0) );
+		@include animation( pushright-sibling-close $animation_duration ease-in-out );
+	}
+
+
+
+
+}
+
+
+
+
+
