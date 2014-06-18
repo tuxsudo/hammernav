@@ -16,6 +16,7 @@
 <!-- <link rel="stylesheet" type="text/css" media="all" href="css/hammernav.css" /> -->
 <!-- Scripts -->
 <script src='js/jquery-1.9.js'></script>
+<script src='js/modernizr.js'></script>
 <script src="js/hammerdrawer.js"></script>
 <!-- <script src="js/hammernav.js"></script> -->
 
@@ -121,7 +122,7 @@ $(function() {
 		'siblings':'.content, header',
 		// 'parent':'.container',
 		// reset_timeout:3000,
-		'options':'coverright'
+		'options':'uncoverright'
 	});
 
     $("form.search").hammerdrawer({
@@ -130,7 +131,7 @@ $(function() {
     	'siblings':'.content, header',
     	// parent:'.container',
 		// reset_timeout:3000,
-    	'options':'coverleft'
+    	'options':'pushright'
     });
 
 });
