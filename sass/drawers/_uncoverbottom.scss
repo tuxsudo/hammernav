@@ -13,18 +13,19 @@ $animation_duration:.35s;
 
 
 @include keyframes(uncoverbottom-drawer-open){
-	0%{opacity: .3; @include transform( translate3d(-5%,0,0)scale(.98) ); }
-	100%{ opacity: 1; @include transform( translate3d(0,0,0)scale(1) ); }
+	0%{@include transform( rotateX(40deg) scale(.98) ); }
+	100%{  @include transform( rotateX(0deg) scale(1) ); }
 }
 
 @include keyframes(uncoverbottom-drawer-close) {
-	0%{ opacity: 1; @include transform( translate3d(0,0,0)scale(1) ); }
-	100%{ opacity: .3; @include transform( translate3d(-5%,0,0)scale(.98) ); }
+	0%{ @include transform( rotateX(0deg) scale(1) ); }
+	100%{  @include transform( rotateX(40deg) scale(.98) ); }
 }
 
 
 @include keyframes(uncoverbottom-sibling-open) {
 	0%{@include transform( translate3d(0,0,0) ) }
+	30%{@include transform( translate3d(0,$vertical-drawer-height*.1, 0)  ) }
 	70%{@include transform( translate3d(0,-$vertical-drawer-height*1.1, 0)  ) }
 	100%{@include transform( translate3d(0,-$vertical-drawer-height, 0) ) }
 }
@@ -32,7 +33,8 @@ $animation_duration:.35s;
 
 @include keyframes(uncoverbottom-sibling-close) {
 	0%{ @include transform(translate3d(0,-$vertical-drawer-height,0)) }
-	70%{@include transform( translate3d(0,-$vertical-drawer-height*.1, 0) ) }
+	30%{@include transform( translate3d(0,-$vertical-drawer-height*1.1, 0)  ) }
+	70%{@include transform( translate3d(0,$vertical-drawer-height*.1, 0) ) }
 	100%{@include transform( translate3d(0,0,0) ) }
 }
 
@@ -53,32 +55,31 @@ $animation_duration:.35s;
 /*  drawer Drawer Layout  */
 .hammerdrawer-uncoverbottom-drawer{
 	bottom:0;
+	display:none;
 	height: $vertical-drawer-height;
 	right: 0;
 	margin: 0;
-	opacity: 0.3;
 	overflow-x:hidden;
 	overflow-y:auto;
 	position: fixed;
 	width:100%;
 	z-index:-2;
 
-	@include transform( translate3d(5%,0,0) scale(.97) );
 
 
 	&.hammerdrawer-uncoverbottom-open {
-		opacity: 1;
+		display:block;
 		z-index:0;
 
-		@include transform( translate3d(0,0,0) scale(1) );
+		@include transform( rotateX(0deg) scale(1) );
 		@include animation( uncoverbottom-drawer-open $animation_duration ease-in-out );
 
 	}
 
 	&.hammerdrawer-uncoverbottom-close {
-		opacity: .3;
+		display:block;
 		z-index:-1;
-		@include transform( translate3d(5%,0,0)scale(.97) );
+		@include transform( rotateX(40deg) scale(.98) );
 		@include animation( uncoverbottom-drawer-close $animation_duration ease-in-out );
 	}
 

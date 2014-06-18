@@ -54,6 +54,18 @@ HammerDrawer.prototype.initEvents=function(){
         hammerdrawer.toggle();
     });
 
+    this.$opener.on("click", function(event){
+        event.stopPropagation();
+        event.preventDefault();
+        hammerdrawer.open();
+    });
+
+    this.$closer.on("click", function(event){
+        event.stopPropagation();
+        event.preventDefault();
+        hammerdrawer.close();
+    });
+
     this.$siblings.click(function() {
         if (hammerdrawer.isactivated) {
             hammerdrawer.close();

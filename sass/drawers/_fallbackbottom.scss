@@ -1,0 +1,35 @@
+
+
+
+/* VARIABLES REQUIRED */
+
+
+
+
+.hammerdrawer-fallbackbottom-parent {
+	overflow: hidden;
+}
+
+
+.hammerdrawer-fallbackbottom-drawer{
+	bottom:0;
+	display:none;
+	left:0;
+	margin: 0;
+	overflow-x:hidden;
+	overflow-y:auto;
+	position: fixed;
+	right:0;
+
+	z-index:-1;
+
+	&.hammerdrawer-fallbackbottom-open, &.hammerdrawer-fallbackbottom-close {
+		display:block;
+		z-index:100;
+	}
+
+	&.hammerdrawer-fallbackbottom-close {
+		display:none;
+	}
+
+}

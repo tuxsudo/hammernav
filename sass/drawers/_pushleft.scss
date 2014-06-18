@@ -13,7 +13,7 @@ $animation_duration:.35s;
 
 @include keyframes(pushleft-drawer-open){
 	0%{ @include transform( translate3d(-$horizontal-drawer-width,0,0) ); }
-	70%{ @include transform( translate3d(0, 0, 0)  ); width:$horizontal-drawer-width*1.05; }
+	70%{ @include transform( translate3d(0, 0, 0)  ); padding-left:$horizontal-drawer-width*.05; width:$horizontal-drawer-width*1.05; }
 	100%{ @include transform( translate3d(0, 0, 0) ); }
 }
 
@@ -29,12 +29,14 @@ $animation_duration:.35s;
 
 @include keyframes(pushleft-drawer-close) {
 	0%{@include transform( translate3d(0,0,0) ) }
-	70%{@include transform( translate3d(-$horizontal-drawer-width*1.05, 0, 0)  ); padding-left:$horizontal-drawer-width*.05; }
+	30%{@include transform( translate3d($horizontal-drawer-width*.1, 0, 0)  ); padding-left:$horizontal-drawer-width*.1;width:$horizontal-drawer-width*1.1;  }
+	70%{@include transform( translate3d(-$horizontal-drawer-width*1.05, 0, 0)  ); padding-left:$horizontal-drawer-width*.05;width:$horizontal-drawer-width*1.05;  }
 	100%{@include transform( translate3d(-$horizontal-drawer-width, 0, 0) ) }
 }
 
 @include keyframes(pushleft-sibling-close) {
 	0%{ @include transform(translate3d($horizontal-drawer-width,0,0)) }
+	30%{@include transform( translate3d($horizontal-drawer-width*1.1,0,0) ) }
 	70%{@include transform( translate3d(-$horizontal-drawer-width*.05,0,0) ) }
 	100%{@include transform( translate3d(0,0,0) ) }
 }

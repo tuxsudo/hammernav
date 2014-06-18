@@ -1,0 +1,36 @@
+
+
+
+/* VARIABLES REQUIRED */
+// 	1)		$horizontal-drawer-width
+
+
+
+.hammerdrawer-fallbackright-parent {
+	overflow: hidden;
+}
+
+
+.hammerdrawer-fallbackright-drawer{
+	display:none;
+	height: 100%;
+	margin: 0;
+	overflow-x:hidden;
+	overflow-y:auto;
+	position: absolute;
+	right:0;
+	top: 0;
+	width: $horizontal-drawer-width;
+	z-index:-1;
+
+	&.hammerdrawer-fallbackright-open,
+	&.hammerdrawer-fallbackright-close {
+		display:block;
+		z-index:100;
+	}
+
+	&.hammerdrawer-fallbackright-close {
+		display:none;
+	}
+
+}

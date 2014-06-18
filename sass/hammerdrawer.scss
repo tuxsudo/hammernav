@@ -16,6 +16,13 @@
 @import "drawers/pushleft";
 @import "drawers/pushright";
 
+@import "drawers/fallbacktop";
+@import "drawers/fallbackbottom";
+@import "drawers/fallbackleft";
+@import "drawers/fallbackright";
+
+
+
 form.search, nav.nav{
 	background: #2c2c2c;
 	color:#afafaf;

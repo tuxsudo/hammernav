@@ -106,6 +106,10 @@
 			</li>
 			<li class="footer-section">
 				<p class="placefiller">Content Footer</p>
+				<div class="icons">
+					<a class="hammerdrawer-toggler right navtoggler">&#9776;</a>
+					<a class="hammerdrawer-toggler right searchtoggler">&#984;</a>
+				</div>
 			</li>
 		</ul>
 	</div>
@@ -116,13 +120,15 @@
 
 $(function() {
 
+	var client_has_animations = Modernizr.testProp("animation");
+
     $("nav.nav").hammerdrawer({
 		'toggle':'.navtoggler',
 		// 'close': '.drawercloser',
 		'siblings':'.content, header',
 		// 'parent':'.container',
 		// reset_timeout:3000,
-		'options':'uncoverright'
+		'options':client_has_animations ? 'pushleft' : 'fallbacktop'
 	});
 
     $("form.search").hammerdrawer({
@@ -131,7 +137,7 @@ $(function() {
     	'siblings':'.content, header',
     	// parent:'.container',
 		// reset_timeout:3000,
-    	'options':'pushright'
+    	'options':client_has_animations ? 'pushright' : 'fallbackright'
     });
 
 });

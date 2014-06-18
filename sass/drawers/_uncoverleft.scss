@@ -6,19 +6,19 @@
 /* VARIABLES REQUIRED */
 
 // $horizontal-drawer-width
-
+$animation_duration:.35s;
 
 
 
 
 @include keyframes(uncoverleft-drawer-open){
-	0%{opacity: .3; @include transform( translate3d(5%,0,0)scale(.98) ); }
-	100%{ opacity: 1; @include transform( translate3d(0,0,0)scale(1) ); }
+	0%{ @include transform( translate3d(5%,0,0)scale(.98)rotateY(-40deg) ); }
+	100%{  @include transform( translate3d(0,0,0)scale(1)rotateY(0deg) ); }
 }
 
 @include keyframes(uncoverleft-drawer-close) {
-	0%{ opacity: 1; @include transform( translate3d(0,0,0)scale(1) ); }
-	30%{ opacity: .3; @include transform( translate3d(5%,0,0)scale(.98) ); }
+	0%{  @include transform( translate3d(0,0,0)scale(1)rotateY(0deg) ); }
+	70%{  @include transform( translate3d(5%,0,0)scale(.98)rotateY(-40deg) ); }
 }
 
 
@@ -50,11 +50,11 @@
 
 /* Drawer   */
 .hammerdrawer-uncoverleft-drawer{
-	// display:none;
+	display:none;
 	height: 100%;
 	left: 0;
 	margin: 0;
-	opacity: 0.3;
+	// opacity: 0.3;
 	overflow-x:hidden;
 	overflow-y:auto;
 	position: fixed;
@@ -62,25 +62,25 @@
 	width: $horizontal-drawer-width;
 	z-index:-2;
 
-	@include transform( translate3d(5%,0,0) scale(.97) );
+	@include transform( translate3d(5%,0,0) scale(.98) );
 
 
 	&.hammerdrawer-uncoverleft-open {
-		// display:block;
-		opacity: 1;
-		z-index:0;
+		display:block;
+		// opacity: 1;
+		z-index:-1;
 
 		@include transform( translate3d(0,0,0)scale(1) );
-		@include animation( uncoverleft-drawer-open .35s ease-in-out );
+		@include animation( uncoverleft-drawer-open $animation_duration ease-in-out );
 
 	}
 
 	&.hammerdrawer-uncoverleft-close {
-		// display:none;
-		opacity: .3;
+		display:block;
+		// opacity: .3;
 		z-index:-1;
-		@include transform( translate3d(5%,0,0)scale(.97) );
-		@include animation( uncoverleft-drawer-close .3s ease-in-out );
+		@include transform( translate3d(5%,0,0)scale(.98) );
+		@include animation( uncoverleft-drawer-close $animation_duration ease-in-out );
 	}
 
 }
@@ -93,13 +93,13 @@
 
 	&.hammerdrawer-uncoverleft-open{
 		@include transform( translate3d($horizontal-drawer-width,0,0) );
-		@include animation( uncoverleft-sibling-open .3s ease-in-out );
+		@include animation( uncoverleft-sibling-open $animation_duration ease-in-out );
 	}
 
 
 	&.hammerdrawer-uncoverleft-close{
 		@include transform( translate3d(0,0,0) );
-		@include animation( uncoverleft-sibling-close .3s ease-in-out );
+		@include animation( uncoverleft-sibling-close $animation_duration ease-in-out );
 	}
 
 
